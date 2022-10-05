@@ -1,0 +1,55 @@
+// *,
+// ::after,
+// ::before {
+//   font-size: 1.1em;
+// }
+
+$my-gray: #777;
+$my-dark-gray: #333;
+$my-blue: hsl(200 100% 50%);
+
+.container {
+  position: relative;
+  width: 20em;
+  min-height: 1.5em;
+  border: 0.05em solid $my-gray;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  outline: none;
+  gap: 0.5em;
+
+  &:focus {
+    border-color: $my-blue;
+  }
+}
+
+.value {
+  flex-grow: 1;
+}
+
+.option {
+  list-style: none;
+}
+
+.close-btn {
+  color: $my-gray;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.25em;
+
+  &:focus,
+  &:hover {
+    color: $my-dark-gray;
+  }
+}
+
+.divider {
+  background-color: $my-gray;
+  align-self: stretch;
+  width: 0.05em;
+}
