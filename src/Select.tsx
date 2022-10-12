@@ -25,7 +25,7 @@ type SelectProps = {
 export const Select = ({ multiple, value, onChange, options }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [highlightedIndex, setHighligtedIndex] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
+  // const containerRef = useRef<HTMLDivElement>(null)
 
   function clearOptions() {
     multiple ? onChange([]) : onChange(undefined)
@@ -97,7 +97,7 @@ export const Select = ({ multiple, value, onChange, options }: SelectProps) => {
           &times;
         </button>
         <div className={styles.divider}></div>
-        <div className={styles.caret} tabIndex={0}></div>
+        <div className={styles.caret}></div>
         <ul className={`${styles.options} ${isOpen && styles.show}`}>
           {options.map((option, index) => (
             <li
