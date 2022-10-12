@@ -20,6 +20,10 @@ $my-blue: hsl(200 100% 50%);
   outline: none;
   gap: 0.5em;
 
+  & > * {
+    user-select: none;
+  }
+
   &:focus {
     border-color: $my-blue;
   }
