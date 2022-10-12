@@ -13,7 +13,7 @@ $my-blue: hsl(200 100% 50%);
   width: 20em;
   min-height: 1.5em;
   border: 0.05em solid $my-gray;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   display: flex;
   align-items: center;
   padding: 0.5em;
@@ -23,33 +23,116 @@ $my-blue: hsl(200 100% 50%);
   &:focus {
     border-color: $my-blue;
   }
-}
 
-.value {
-  flex-grow: 1;
-}
-
-.option {
-  list-style: none;
-}
-
-.close-btn {
-  color: $my-gray;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 0;
-  font-size: 1.25em;
-
-  &:focus,
-  &:hover {
-    color: $my-dark-gray;
+  .value {
+    flex-grow: 1;
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
   }
-}
 
-.divider {
-  background-color: $my-gray;
-  align-self: stretch;
-  width: 0.05em;
+  .close-btn {
+    color: $my-gray;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.25em;
+
+    &:focus,
+    &:hover {
+      color: $my-dark-gray;
+    }
+  }
+
+  .divider {
+    background-color: $my-gray;
+    align-self: stretch;
+    width: 0.05em;
+  }
+
+  .caret {
+    translate: 0 25%;
+    border: 0.25em solid transparent;
+    border-top-color: $my-gray;
+
+    &:hover,
+    &:focus {
+      border-top-color: $my-dark-gray;
+    }
+  }
+
+  .option-badge {
+    display: flex;
+    gap: 0.25em;
+    align-items: center;
+    border: 0.05em solid $my-gray;
+    border-radius: 0.25em;
+    padding: 0.15em 0.25em;
+    background: none;
+    outline: none;
+    cursor: pointer;
+
+    & > .remove-btn {
+      font-size: 1.25em;
+      transform: translateY(0.05em);
+      color: $my-gray;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: hsl(0, 100%, 90%);
+      border-color: hsl(0, 100%, 50%);
+    }
+
+    &:hover > .remove-btn,
+    &:focus > .remove-btn {
+      color: hsl(0, 100%, 50%);
+    }
+  }
+
+  .options {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: 0.05em solid $my-gray;
+    border-radius: 0.25em;
+    list-style: none;
+    display: none;
+    max-height: 15em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    left: 0;
+    top: calc(100% + 0.25em);
+    background-color: white;
+    z-index: 5;
+
+    &::-webkit-scrollbar {
+      background: transparent;
+      width: 0.25em;
+
+      &-thumb {
+        background: $my-gray;
+        border-radius: 100vw;
+      }
+    }
+
+    &.show {
+      display: block;
+    }
+    .option {
+      padding: 0.25em 0.5em;
+      cursor: pointer;
+
+      &.selected {
+        background-color: hsl(200 100% 70%);
+      }
+      &.highlighted {
+        background-color: hsl(200 100% 50%);
+        color: white;
+      }
+    }
+  }
 }
